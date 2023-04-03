@@ -109,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias zshrc="nvim ~/.zshrc"
 alias src="source ~/.zshrc"
+alias vim="nvim"
 
 # Enable command history in iex
 export ERL_AFLAGS="-kernel shell_history enabled"
@@ -140,6 +141,8 @@ OPENBLAS="$(brew --prefix openblas)"
 
 # Pyenv
 PATH=$(pyenv root)/shims:$PATH
+
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
