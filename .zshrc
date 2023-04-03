@@ -107,7 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias zshrc="nano ~/.zshrc"
+alias zshrc="nvim ~/.zshrc"
+alias src="source ~/.zshrc"
 
 # Enable command history in iex
 export ERL_AFLAGS="-kernel shell_history enabled"
