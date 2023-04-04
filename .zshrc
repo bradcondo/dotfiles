@@ -110,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 alias zshrc="nvim ~/.zshrc"
 alias src="source ~/.zshrc"
 alias vim="nvim"
+alias nvc="nvim ~/.config/nvim"
 
 # Enable command history in iex
 export ERL_AFLAGS="-kernel shell_history enabled"
