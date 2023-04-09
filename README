@@ -31,3 +31,14 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 Note: Make sure to install the Nerd font's when configuring Powerlevel10k.
 
 Once installed, use the `coolnight` color scheme in iTerm 2.
+
+### Neovim
+As of writing this Neovim 0.9 has been released, but many plugins are not stable (including Treesitter and LSP config). For now, here are instructions to install 0.8.3.
+
+```
+cd ~
+curl -LO https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-macos.tar.gz
+xattr -c ./nvim-macos.tar.gz
+tar xzvf nvim-macos.tar.gz
+sudo ln -s ~/nvim-macos/bin/nvim /usr/local/bin/nvim
+```
