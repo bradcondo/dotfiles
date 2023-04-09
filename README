@@ -17,6 +17,9 @@ brew install iterm2
 ### ASDF
 ```
 brew install asdf
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf install nodejs 19.8.1
+asdf global nodejs 19.8.1
 ```
 
 ### ZSH
