@@ -1,3 +1,3 @@
 return {
-"tpope/vim-sleuth", -- Detects `shiftwidth` and `expandtab` heuristically
+  "tpope/vim-sleuth", -- Detects `shiftwidth` and `expandtab` heuristically
 }
