@@ -5,16 +5,19 @@ This is a guide on how to recreate my local development environment.
 ## Prerequisites
 
 ### Homebrew
+
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 ### Iterm2
+
 ```
 brew install iterm2
 ```
 
 ### ASDF
+
 ```
 brew install asdf
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
@@ -23,6 +26,7 @@ asdf global nodejs 19.8.1
 ```
 
 ### ZSH
+
 ```
 brew install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -35,7 +39,15 @@ Note: Make sure to install the Nerd font's when configuring Powerlevel10k.
 
 Once installed, use the `coolnight` color scheme in iTerm 2.
 
+### Tmux
+
+```
+brew install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
 ### Neovim
+
 As of writing this Neovim 0.9 has been released, but many plugins are not stable (including Treesitter and LSP config). For now, here are instructions to install 0.8.3.
 
 ```
