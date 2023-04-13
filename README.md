@@ -46,6 +46,8 @@ brew install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
+Once installed, open a tmux session and do <C-a> I (<prefix>I) to install the TPM plugins necessary.
+
 ### Neovim
 
 As of writing this Neovim 0.9 has been released, but many plugins are not stable (including Treesitter and LSP config). For now, here are instructions to install 0.8.3.
