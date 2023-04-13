@@ -4,7 +4,7 @@ return {
     event = "BufReadPre",
     build = ":TSUpdate",
     config = function()
-      require("treesitter").setup({
+      require("nvim-treesitter.configs").setup({
         -- enable syntax highlighting
         highlight = {
           enable = true,

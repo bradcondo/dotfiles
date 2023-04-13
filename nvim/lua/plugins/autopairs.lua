@@ -6,7 +6,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
-      require("autopairs").setup({
+      require("nvim-autopairs").setup({
         check_ts = true, -- enable treesitter
         ts_config = {
           lua = { "string" }, -- don't add pairs in lua string treesitter nodes
@@ -16,7 +16,7 @@ return {
       })
 
       -- make autopairs and completion work together
-      require("cmp").event:on("confirm_done", require("autopairs").completion.cmp.on_confirm_done())
+      require("cmp").event:on("confirm_done", require("nvim-autopairs").completion.cmp.on_confirm_done())
     end,
   },
 }

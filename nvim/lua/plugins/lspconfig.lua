@@ -48,7 +48,7 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
-      let lspconfig = require("lspconfig")
+      local lspconfig = require("lspconfig")
 
       -- configure html server
       lspconfig["html"].setup({
