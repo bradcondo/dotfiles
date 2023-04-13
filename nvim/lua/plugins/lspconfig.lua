@@ -58,8 +58,8 @@ return {
 
       -- configure typescript server with plugin
       require("typescript").setup({
-        server = {
-          capabilities = capabilities,
+        server =  {
+            capabilities = capabilities,
           on_attach = on_attach,
         },
       })
