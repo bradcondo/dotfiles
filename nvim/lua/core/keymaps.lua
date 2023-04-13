@@ -26,10 +26,12 @@ bind("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics lis
 
 -- Save buffer
 bind("n", "<C-s>", ":w<CR>")
-bind("i", "C-s", ":w<CR>")
+bind("n", "<C-S-s>", ":wq<CR>")
+bind("i", "<C-s>", ":w<CR>")
+bind("i", "<C-S-s>", ":wq<CR>")
 
 -- Formatting
 bind("n", "<C-f>", ":lua vim.lsp.buf.format({ async = true})<cr>", { silent = true })
 
 -- Search
-bind("n", "<leader>/", "<Cmd>noh<cr>", { silent = true }) -- Deselect on search
+bind("n", "<leader>h", "<Cmd>noh<cr>", { silent = true }) -- Deselect on search
