@@ -5,7 +5,7 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = function(plugin)
+    config = function()
       -- recommended settings from nvim-tree documentation
       vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
@@ -14,7 +14,7 @@ return {
       vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
       -- configure nvim-tree
-      plugin.setup({
+      require("tree").setup({
         -- change folder arrow icons
         renderer = {
           icons = {
@@ -59,7 +59,7 @@ return {
         end
 
         -- open the tree
-        plugin.tree.open()
+        require("tree").tree.open()
       end
 
       vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })

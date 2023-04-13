@@ -4,17 +4,9 @@ return {
     dependencies = {
       "williamboman/mason-lspconfig.nvim", -- Bridges Mason with LSP client
     },
-    config = function(mason)
-      -- import mason-lspconfig plugin safely
-      local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-      if not mason_lspconfig_status then
-        return
-      end
-
-      -- enable mason
-      mason.setup()
-
-      mason_lspconfig.setup({
+    config = function()
+      require("mason").setup()
+      require("mason-lspconfig").setup({
         -- list of servers for mason to install
         ensure_installed = {
           "tsserver",

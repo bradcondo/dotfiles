@@ -3,8 +3,8 @@ return {
     "nvim-treesitter/nvim-treesitter", -- Neovim interface/configuration for Treesitter
     event = "BufReadPre",
     build = ":TSUpdate",
-    config = function(plugin)
-      plugin.setup({
+    config = function()
+      require("treesitter").setup({
         -- enable syntax highlighting
         highlight = {
           enable = true,

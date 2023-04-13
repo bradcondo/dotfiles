@@ -6,8 +6,8 @@ return {
       "nvim-telescope/telescope-fzf-native.nvim", -- A faster fuzzy finder
       "nvim-lua/plenary.nvim", -- Shared functions used by many Lua plugins
     },
-    config = function(plugin)
-      plugin.setup({
+    config = function()
+      require("telescope").setup({
         defaults = {
           mappings = {
             i = {
@@ -19,7 +19,7 @@ return {
       })
 
       -- Enable telescope fzf native, if installed
-      plugin.load_extension("fzf")
+      require("telescope").load_extension("fzf")
     end,
   },
 }

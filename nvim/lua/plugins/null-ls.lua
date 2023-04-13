@@ -1,6 +1,8 @@
 return {
   "jose-elias-alvarez/null-ls.nvim", -- Allows linters and formatters for LSP
-  setup = function(null_ls)
+  setup = function()
+    local null_ls = require("null-ls")
+
     -- for conciseness
     local formatting = null_ls.builtins.formatting -- to setup formatters
     local diagnostics = null_ls.builtins.diagnostics -- to setup linters

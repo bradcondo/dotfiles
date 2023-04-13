@@ -9,7 +9,7 @@ return {
         section_separators = "",
       },
     },
-    config = function(plugin)
+    config = function()
       -- get lualine nightfly theme
       local lualine_nightfly = require("lualine.themes.nightfly")
 
@@ -35,7 +35,7 @@ return {
       }
 
       -- configure lualine with modified theme
-      plugin.setup({
+      require("lualine").setup({
         options = {
           theme = lualine_nightfly,
         },

@@ -7,8 +7,8 @@ return {
       --Please make sure you install markdown and markdown_inline parser
       { "nvim-treesitter/nvim-treesitter" },
     },
-    config = function(plugin)
-      plugin.setup({
+    config = function()
+      require("lspsaga").setup({
         -- keybinds for navigation in lspsaga window
         scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
         -- use enter to open file with definition preview

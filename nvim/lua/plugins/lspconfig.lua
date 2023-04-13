@@ -7,19 +7,7 @@ return {
       "jose-elias-alvarez/typescript.nvim",
       "hrsh7th/cmp-nvim-lsp",
     },
-    config = function(lspconfig)
-      -- import cmp-nvim-lsp plugin safely
-      local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-      if not cmp_nvim_lsp_status then
-        return
-      end
-
-      -- import typescript plugin safely
-      local typescript_setup, typescript = pcall(require, "typescript")
-      if not typescript_setup then
-        return
-      end
-
+    config = function()
       local keymap = vim.keymap -- for conciseness
 
       -- enable keybinds only for when lsp server available
@@ -50,7 +38,7 @@ return {
       end
 
       -- used to enable autocompletion (assign to every lsp server config)
-      local capabilities = cmp_nvim_lsp.default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       -- Change the Diagnostic symbols in the sign column (gutter)
       -- (not in youtube nvim video)
@@ -60,6 +48,8 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
+      let lspconfig = require("lspconfig")
+
       -- configure html server
       lspconfig["html"].setup({
         capabilities = capabilities,
@@ -67,7 +57,7 @@ return {
       })
 
       -- configure typescript server with plugin
-      typescript.setup({
+      require("typescript").setup({
         server = {
           capabilities = capabilities,
           on_attach = on_attach,
