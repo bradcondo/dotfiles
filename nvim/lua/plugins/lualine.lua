@@ -20,11 +20,12 @@ return {
         violet = "#FF61EF",
         yellow = "#FFDA7B",
         black = "#000000",
+        red = "#991111",
       }
 
       -- change nightlfy theme colors
       lualine_nightfly.normal.a.bg = new_colors.blue
-      lualine_nightfly.insert.a.bg = new_colors.green
+      lualine_nightfly.insert.a.bg = new_colors.red
       lualine_nightfly.visual.a.bg = new_colors.violet
       lualine_nightfly.command = {
         a = {

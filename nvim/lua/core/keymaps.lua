@@ -3,7 +3,7 @@ local bind = vim.keymap.set
 --
 -- Telescope
 bind("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
-bind("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
+bind("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[_] Find existing buffers" })
 bind("n", "<leader>/", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
@@ -25,13 +25,17 @@ bind("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagno
 bind("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Save buffer
-bind("n", "<C-s>", ":w<CR>")
-bind("n", "<C-S-s>", ":wq<CR>")
-bind("i", "<C-s>", ":w<CR>")
-bind("i", "<C-S-s>", ":wq<CR>")
+bind({ "n", "v", "i" }, "<C-s>", ":w<CR>")
+bind({ "n", "v", "i" }, "<C-S-s>", ":wq<CR>")
 
 -- Formatting
 bind("n", "<C-f>", ":lua vim.lsp.buf.format({ async = true})<cr>", { silent = true })
 
 -- Search
 bind("n", "<leader>h", "<Cmd>noh<cr>", { silent = true }) -- Deselect on search
+
+-- Tree
+bind({ "n", "v", "i" }, "<leader><leader>", ":NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
+bind({ "n", "v", "i" }, "<leader>ff", ":NvimTreeFocus<CR>", { desc = "[F]ocus [F]ile Explorer" })
+bind({ "n", "v", "i" }, "<leader>fi", ":NvimTreeFindFile<CR>", { desc = "[F]ind [F]ile in Explorer" })
+bind({ "n", "v", "i" }, "<leader>fc", ":NvimTreeCollapse<CR>", { desc = "[F]ile [C]ollapse in Explorer" })
