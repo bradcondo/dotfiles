@@ -16,6 +16,8 @@ This is a guide on how to recreate my local development environment.
 brew install iterm2
 ```
 
+In addition to importing and setting the `coolnight` color scheme in `Profiles`, you'll also need to set the option key to `ESC+`.
+
 ### ASDF
 
 ```
@@ -58,4 +60,10 @@ curl -LO https://github.com/neovim/neovim/releases/download/v0.8.3/nvim-macos.ta
 xattr -c ./nvim-macos.tar.gz
 tar xzvf nvim-macos.tar.gz
 sudo ln -s ~/nvim-macos/bin/nvim /usr/local/bin/nvim
+```
+
+### Other
+
+```
+brew install bat bat-extras
 ```
