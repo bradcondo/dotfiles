@@ -25,17 +25,33 @@ bind("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagno
 bind("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Save buffer
-bind({ "n", "v", "i" }, "<C-s>", ":w<CR>")
-bind({ "n", "v", "i" }, "<C-S-s>", ":wq<CR>")
+bind("n", "<C-s>", ":w<CR>")
+bind("n", "<C-S-s>", ":wq<CR>")
 
 -- Formatting
-bind("n", "<C-f>", ":lua vim.lsp.buf.format({ async = true})<cr>", { silent = true })
+bind(
+  "n",
+  "<C-f>",
+  ':lua vim.lsp.buf.format({ async = true, filter = function(client) return client.name == "null-ls" end })<cr>',
+  { silent = true }
+)
 
 -- Search
 bind("n", "<leader>h", "<Cmd>noh<cr>", { silent = true }) -- Deselect on search
 
 -- Tree
-bind({ "n", "v", "i" }, "<leader><leader>", ":NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
-bind({ "n", "v", "i" }, "<leader>ff", ":NvimTreeFocus<CR>", { desc = "[F]ocus [F]ile Explorer" })
-bind({ "n", "v", "i" }, "<leader>fi", ":NvimTreeFindFile<CR>", { desc = "[F]ind [F]ile in Explorer" })
-bind({ "n", "v", "i" }, "<leader>fc", ":NvimTreeCollapse<CR>", { desc = "[F]ile [C]ollapse in Explorer" })
+bind("n", "<leader><leader>", ":NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
+bind("n", "<leader>ff", ":NvimTreeFocus<CR>", { desc = "[F]ocus [F]ile Explorer" })
+-- bind({ "n", "v", "i" }, "<leader>fi", ":NvimTreeFindFile<CR>", { desc = "[F]ind F[i]le in Explorer" })
+bind("n", "<leader>fc", ":NvimTreeCollapse<CR>", { desc = "[F]ile [C]ollapse in Explorer" })
+
+-- Barbar
+bind("n", "<A-,>", ":BufferPrevious<CR>")
+bind("n", "<A-.>", ":BufferNext<CR>")
+bind("n", "<A-x>", ":BufferClose<CR>:NvimTreeFocus<CR>")
+
+-- Aerial
+bind("n", "<leader>a", ":AerialToggle<CR>")
+
+-- Toggle Bool
+bind("n", "<leader>t", ":ToggleBool<CR>")
