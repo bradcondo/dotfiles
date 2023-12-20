@@ -6,6 +6,7 @@ return {
       "folke/neodev.nvim", -- Adds init.lua/nvim API documentation
       "jose-elias-alvarez/typescript.nvim",
       "hrsh7th/cmp-nvim-lsp",
+      "MunifTanjim/eslint.nvim",
     },
     config = function()
       local keymap = vim.keymap -- for conciseness
@@ -64,10 +65,51 @@ return {
         },
       })
 
+      -- Disabled because this doesn't appear to be needed
+      -- require("eslint").setup({
+      --   bin = "eslint_d", -- or `eslint_d`
+      --   code_actions = {
+      --     enable = true,
+      --     apply_on_save = {
+      --       enable = true,
+      --       types = { "directive", "problem", "suggestion", "layout" },
+      --     },
+      --     disable_rule_comment = {
+      --       enable = true,
+      --       location = "separate_line", -- or `same_line`
+      --     },
+      --   },
+      --   diagnostics = {
+      --     enable = true,
+      --     report_unused_disable_directives = false,
+      --     run_on = "save", -- or `type`
+      --   },
+      -- })
+
       -- configure css server
       lspconfig["cssls"].setup({
         capabilities = capabilities,
         on_attach = on_attach,
+        settings = {
+          css = {
+            validate = true,
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
+          scss = {
+            validate = true,
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
+          less = {
+            validate = true,
+            lint = {
+              unknownAtRules = "ignore",
+            },
+          },
+        },
       })
 
       -- configure lua server (with special settings)
@@ -91,6 +133,9 @@ return {
           },
         },
       })
+
+      -- configure tailwindcss
+      lspconfig["tailwindcss"].setup({})
     end,
   },
 }

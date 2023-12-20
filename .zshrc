@@ -147,5 +147,31 @@ OPENBLAS="$(brew --prefix openblas)"
 # Bat config (https://github.com/sharkdp/bat)
 export BAT_THEME="1337"
 
+# Export vars for NPM
+export FONT_AWESOME_PRO_TOKEN=""
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Flyctrl
+export FLYCTL_INSTALL="/Users/brad/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# Python ASDF
+# export ASDF_PYTHON_PATCH_URL="https://github.com/python/cpython/commit/8ea6353.patch?full_index=1"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/brad/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/brad/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/brad/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/brad/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

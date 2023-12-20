@@ -15,6 +15,7 @@ return {
           "html",
           "cssls",
           "lua_ls",
+          "tailwindcss",
         },
         -- auto-install configured servers (with lspconfig)
         automatic_installation = true, -- not the same as ensure_installed

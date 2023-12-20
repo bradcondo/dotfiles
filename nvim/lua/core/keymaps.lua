@@ -15,6 +15,7 @@ bind("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "[S]ea
 bind("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
 bind("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
 bind("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
+bind("n", "<leader>sr", require("telescope.builtin").resume, { desc = "[S]earch [R]resume" })
 bind("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
 
 --
@@ -27,6 +28,7 @@ bind("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics lis
 -- Save buffer
 bind("n", "<C-s>", ":w<CR>")
 bind("n", "<C-S-s>", ":wq<CR>")
+bind("n", "<C-r>", ":bufdo e<CR>")
 
 -- Formatting
 bind(

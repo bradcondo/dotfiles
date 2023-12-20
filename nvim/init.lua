@@ -7,6 +7,7 @@ require("core.options")
 --  NOTE: Must happen before plugins are required in Lazy (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.cmd([[set autoread]])
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
