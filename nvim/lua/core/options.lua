@@ -47,6 +47,7 @@ set.backspace = "indent,eol,start" -- allow backspace on indent, end of line or 
 
 -- clipboard
 set.clipboard:append("unnamedplus") -- use system clipboard as default register
+vim.api.nvim_set_keymap("n", "c", '"_c', { noremap = true }) -- remap to avoid yanking
 
 -- split windows
 set.splitright = true -- split vertical window to the right

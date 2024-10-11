@@ -1,6 +1,7 @@
 return {
   {
     "nvim-lualine/lualine.nvim", -- Adds configurable status line
+    dependencies = { "nvim-navic" },
     opts = {
       options = {
         icons_enabled = false,
@@ -35,10 +36,22 @@ return {
         },
       }
 
+      local navic = require("nvim-navic")
+
       -- configure lualine with modified theme
       require("lualine").setup({
         options = {
           theme = lualine_nightfly,
+        },
+        sections = {
+          lualine_c = {
+            {
+              navic.get_location,
+              cond = function()
+                return navic.is_available()
+              end,
+            },
+          },
         },
       })
     end,

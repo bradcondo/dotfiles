@@ -112,6 +112,8 @@ alias src="source ~/.zshrc"
 alias vim="nvim"
 alias nvc="nvim ~/.config/nvim"
 alias df="nvim ~/Code/dotfiles"
+alias ssl="local-ssl-proxy --key ~/Code/hooplocal.dev-key.pem --cert ~/Code/hooplocal.dev.pem --source 443 --target"
+alias proxy="ngrok http --domain=related-helping-halibut.ngrok-free.app"
 
 # Enable command history in iex
 export ERL_AFLAGS="-kernel shell_history enabled"
@@ -175,3 +177,25 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# bun completions
+[ -s "/Users/brad/.bun/_bun" ] && source "/Users/brad/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# JDK for React Native Android
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+
+# Android Studio settings
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Trigger configuration
+export TRIGGER_SECRET_KEY=""

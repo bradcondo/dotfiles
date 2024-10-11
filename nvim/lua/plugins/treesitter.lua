@@ -32,6 +32,7 @@ return {
           "python",
           "scss",
           "sql",
+          "swift",
           "tsx",
           "typescript",
           "vim",

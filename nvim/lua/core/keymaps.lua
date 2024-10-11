@@ -28,7 +28,7 @@ bind("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics lis
 -- Save buffer
 bind("n", "<C-s>", ":w<CR>")
 bind("n", "<C-S-s>", ":wq<CR>")
-bind("n", "<C-r>", ":bufdo e<CR>")
+bind("n", "<C-S-r>", ":bufdo e<CR>")
 
 -- Formatting
 bind(

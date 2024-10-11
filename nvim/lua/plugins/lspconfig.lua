@@ -7,12 +7,23 @@ return {
       "jose-elias-alvarez/typescript.nvim",
       "hrsh7th/cmp-nvim-lsp",
       "MunifTanjim/eslint.nvim",
+      "keith/swift.vim",
+      {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim",
+        },
+        opts = { lsp = { auto_attach = true } },
+      },
     },
     config = function()
       local keymap = vim.keymap -- for conciseness
 
       -- enable keybinds only for when lsp server available
       local on_attach = function(client, bufnr)
+        vim.notify("LSP attached to buffer: " .. bufnr .. ", with client: " .. client.name)
+
         -- keybind options
         local opts = { noremap = true, silent = true, buffer = bufnr }
 
@@ -64,6 +75,20 @@ return {
           on_attach = on_attach,
         },
       })
+
+      lspconfig.sourcekit.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+
+      -- vim.api.nvim_create_autocmd("LspAttach", {
+      --   desc = "LSP Actions",
+      --   callback = function(args)
+      --     vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true })
+      --     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true })
+      --     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true, silent = false })
+      --   end,
+      -- })
 
       -- Disabled because this doesn't appear to be needed
       -- require("eslint").setup({
