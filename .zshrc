@@ -124,20 +124,20 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # ASDF
   . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-# ASDF Erlang Configuration Options
-export KERL_CONFIGURE_OPTIONS="--disable-debug \
-      --disable-silent-rules \
-      --enable-dynamic-ssl-lib \
-      --disable-hipe \
-      --enable-shared-zlib \
-      --enable-smp-support \
-      --enable-threads \
-      --enable-wx \
-      --with-ssl=$(brew --prefix openssl@1.1) \
-      --without-javac \
-      --enable-darwin-64bit \
-      --enable-kernel-poll \
-      --with-dynamic-trace=dtrace"
+# # ASDF Erlang Configuration Options
+# export KERL_CONFIGURE_OPTIONS="--disable-debug \
+#       --disable-silent-rules \
+#       --enable-dynamic-ssl-lib \
+#       --disable-hipe \
+#       --enable-shared-zlib \
+#       --enable-smp-support \
+#       --enable-threads \
+#       --enable-wx \
+#       --with-ssl=$(brew --prefix openssl@1.1) \
+#       --without-javac \
+#       --enable-darwin-64bit \
+#       --enable-kernel-poll \
+#       --with-dynamic-trace=dtrace"
 
 # Use OPENBLAS for numpy install on M1
 # See: https://lifesaver.codes/answer/bld-fail-to-build-on-apple-m1-17807
@@ -150,7 +150,7 @@ OPENBLAS="$(brew --prefix openblas)"
 export BAT_THEME="1337"
 
 # Export vars for NPM
-export FONT_AWESOME_PRO_TOKEN=""
+export FONT_AWESOME_PRO_TOKEN="FFF56713-E994-4A7E-8E8C-DF121D6978E3"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -197,5 +197,3 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-# Trigger configuration
-export TRIGGER_SECRET_KEY=""

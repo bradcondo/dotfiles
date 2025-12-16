@@ -30,13 +30,13 @@ bind("n", "<C-s>", ":w<CR>")
 bind("n", "<C-S-s>", ":wq<CR>")
 bind("n", "<C-S-r>", ":bufdo e<CR>")
 
--- Formatting
-bind(
-  "n",
-  "<C-f>",
-  ':lua vim.lsp.buf.format({ async = true, filter = function(client) return client.name == "null-ls" end })<cr>',
-  { silent = true }
-)
+-- -- Formatting
+-- bind(
+--   "n",
+--   "<C-f>",
+--   ':lua vim.lsp.buf.format({ async = true, filter = function(client) return client.name == "null-ls" end })<cr>',
+--   { silent = true }
+-- )
 
 -- Search
 bind("n", "<leader>h", "<Cmd>noh<cr>", { silent = true }) -- Deselect on search
@@ -53,7 +53,70 @@ bind("n", "<A-.>", ":BufferNext<CR>")
 bind("n", "<A-x>", ":BufferClose<CR>:NvimTreeFocus<CR>")
 
 -- Aerial
-bind("n", "<leader>a", ":AerialToggle<CR>")
+bind("n", "<leader>a", function()
+  vim.cmd("AerialToggle")
+end)
 
 -- Toggle Bool
 bind("n", "<leader>t", ":ToggleBool<CR>")
+
+-- Remove unused variables and imports in TypeScript
+bind("n", "<leader>ru", function()
+  vim.lsp.buf.execute_command({
+    command = "_typescript.removeUnused",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+  })
+end, { desc = "[R]emove [U]nused variables and imports in TypeScript" })
+
+-- In your init.lua or a separate file
+local function organize_imports()
+  -- Check if eslint config exists
+  local eslint_configs = {
+    ".eslintrc.js",
+    ".eslintrc.json",
+    ".eslintrc.yml",
+    ".eslintrc.yaml",
+    ".eslintrc",
+    "eslint.config.js",
+    "eslint.config.mjs",
+  }
+
+  local has_eslint = false
+  for _, config in ipairs(eslint_configs) do
+    if vim.fn.filereadable(config) == 1 then
+      has_eslint = true
+      break
+    end
+  end
+
+  -- Also check package.json for eslint config
+  if not has_eslint and vim.fn.filereadable("package.json") == 1 then
+    local package_json = vim.fn.readfile("package.json")
+    local content = table.concat(package_json, "\n")
+    if string.match(content, '"eslintConfig"') then
+      has_eslint = true
+    end
+  end
+
+  if has_eslint then
+    -- Run ESLint fix
+    vim.cmd("silent! !npx eslint --fix %")
+    vim.cmd("edit!") -- Reload the file
+  else
+    -- Fallback to TypeScript organizeImports
+    vim.lsp.buf.code_action({
+      filter = function(action)
+        return action.kind == "source.organizeImports"
+      end,
+      apply = true,
+    })
+  end
+end
+
+-- Create a command
+vim.api.nvim_create_user_command("OrganizeImports", organize_imports, {})
+
+-- Optional: bind to a key
+bind("n", "<leader>oi", function()
+  organize_imports()
+end, { desc = "[O]rganize [i]mports" })

@@ -1,3 +1,14 @@
 return {
-  "tpope/vim-fugitive", -- Enables git commands via :Git or :G
+  {
+    "lewis6991/gitsigns.nvim", -- Adds git releated signs to the gutter, as well as utilities for managing changes
+    opts = {
+      signs = {
+        add = { text = "+" },
+        change = { text = "~" },
+        delete = { text = "_" },
+        topdelete = { text = "‾" },
+        changedelete = { text = "~" },
+      },
+    },
+  },
 }

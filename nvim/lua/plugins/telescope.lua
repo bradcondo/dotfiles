@@ -9,6 +9,10 @@ return {
     config = function()
       require("telescope").setup({
         defaults = {
+          file_ignore_patterns = {
+            "node_modules/.*",
+            "%.d%.ts$",
+          },
           mappings = {
             i = {
               ["<C-u>"] = false,

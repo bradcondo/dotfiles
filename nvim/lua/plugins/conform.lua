@@ -1,20 +1,40 @@
 return {
   "stevearc/conform.nvim",
-  branch = "nvim-0.9",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
 
     conform.setup({
       formatters_by_ft = {
+        css = { "prettier" },
+        -- graphql = { "prettier" },
+        html = { "prettier" },
+        javascript = { "prettier" },
+        javascriptreact = { "prettier" },
+        json = { "prettier" },
+        liquid = { "prettier" },
+        lua = { "stylua" },
+        markdown = { "prettier" },
+        python = { "isort", "black" },
+        svelte = { "prettier" },
         swift = { "swiftformat" },
-        -- lua = { "stylua" },
-        -- javascript = { "prettierd", "prettier", "eslint_d" },
+        typescript = { "prettier" },
+        typescriptreact = { "prettier" },
+        yaml = { "prettier" },
       },
-      format_on_save = function(bufnr)
-        return { timeout_ms = 500, lsp_fallback = true }
-      end,
-      log_level = vim.log.levels.ERROR,
+      format_on_save = {
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 1000,
+      },
     })
+
+    vim.keymap.set({ "n", "v" }, "<C-f>", function()
+      conform.format({
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 1000,
+      })
+    end, { desc = "Format file or range (in visual mode)" })
   end,
 }

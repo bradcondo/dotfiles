@@ -41,6 +41,9 @@ return {
           update_cwd = true,
           ignore_list = {},
         },
+        filters = {
+          custom = { ".DS_Store" },
+        },
         git = {
           ignore = true,
         },
